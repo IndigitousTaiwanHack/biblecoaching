@@ -1,0 +1,15 @@
+//
+//  HT-PrefixHeader.pch
+//  hackathon
+//
+//  Created by GIGIGUN on 04/11/2016.
+//  Copyright © 2016 hippocolors. All rights reserved.
+//
+
+#ifndef HT_PrefixHeader_pch
+#define HT_PrefixHeader_pch
+
+#import "ServerModule.h"
+#import "HTGeneral.h"
+
+#endif /* HT_PrefixHeader_pch */
