@@ -1,0 +1,23 @@
+<% posts.each do |post|%>
+    <div class="panel panel-primary">
+      <div class="panel-body panel-bible">
+        <div>
+          <h4 data-toggle="collapse" data-target=".section-content-<%=post.id%>" class="book-title"><%= post.bible.book.title + post.bible.bid.split("-")[1] %><i class="fa fa-search-plus" aria-hidden="true"></i></h4>
+          <section class="section-content-<%=post.id%> collapse"><%= get_bible_contents(post.bible).gsub("\n", '<br/>').html_safe%></section>
+        </div>
+        <div>
+          <span class="post-content post-<%= post.id%>"><%= post.content %></span>
+        </div>
+      </div>
+      <div class="panel-footer">
+        <span class="footer-item">
+          <span><a href="#" data-tooltip="我要按讚"><i class="fa fa-thumbs-o-up fa-lg" target="post-<%= post.id%>" aria-hidden="true"></i></a></span>
+          <span ><a href="#" data-tooltip="按讚數"><%= render_rank_count(post) %></a></span>
+        </span>
+        <span class="footer-item">
+            <span><a href="#" data-tooltip="我要回覆"><i class="fa fa-comments-o fa-lg" target="post-<%= post.id%>" aria-hidden="true"></i></a></span>
+            <span ><a href="#" data-tooltip="回覆數"><%= render_response_count(post)%></a></span>
+        </span>
+      </div>
+    </div>
+<% end %>

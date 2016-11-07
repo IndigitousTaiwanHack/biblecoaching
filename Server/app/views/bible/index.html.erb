@@ -1,0 +1,48 @@
+<style>
+  #book-list{
+    max-height: 80vh;
+    overflow: auto;
+  }
+  #bible-list{
+    padding-left: 10px;
+  }
+  #bid-list{
+    margin-bottom: 15px;
+  }
+  .post-btn{
+    display: none;
+    position: fixed;
+    right: 15px;
+    bottom:15px;
+    z-index: 999;
+  }
+  .bid.active{
+    color: goldenrod;
+  }
+
+</style>
+<div class="col-md-2" id="book-list">
+  <div class="list-group">
+    <% @books.each do |book| %>
+        <%= link_to book.title, get_bid_path(id: book.id), class: "list-group-item", remote: true %>
+    <% end %>
+  </div>
+</div>
+<div class="col-md-10" id="bible-list">
+  <ul id="bid-list" class="list-inline">
+  </ul>
+  <div class="post-btn">
+    <button type="button" class="btn btn-info" target ="" id="submit-post">發表評論</button></div>
+  <section id="bible-content"></section>
+</div>
+
+<script>
+  $(document).on("click", "a.bid", function() {
+    $("#submit-post").attr("target",$(this).attr('id'));
+  });
+
+  $(document).on("click", "#submit-post", function() {
+    window.location.href = "/posts/new/"+$(this).attr("target");
+  });
+</script>
+

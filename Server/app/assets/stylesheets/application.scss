@@ -1,0 +1,50 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+@import "font-awesome";
+@import "social-buttons-3";
+@import "posts";
+
+html {
+  position: relative;
+  min-height: 100%;
+  font-family: Microsoft JhengHei,serif,sans-serif,cursive,fantasy,monospace;
+}
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 60px;
+}
+
+footer{
+  background-color: #e0e0eb;
+  font-size: 14px;
+  text-align: center;
+  height: 50px;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+.navbar-inverse{
+  background-color: rgba(244, 95, 66,0.5);
+  border: none;
+
+}
+.navbar-inverse .navbar-nav > li > a{
+  color: #fff;
+}
+.navbar-inverse .navbar-nav > .active > a,
+.navbar-inverse .navbar-nav > li > a:hover,
+.navbar-inverse .navbar-nav > .active > a:hover,
+.navbar-inverse .navbar-nav > .active > a:focus{
+  color: #fff;
+  background-color:#B00100;
+}
+
+.btn-facebook a{
+  color: #fff;
+}
+
+.btn-facebook a:hover{
+  color: #fff;
+  text-decoration: none;
+}

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Hackathon</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= favicon_link_tag "coaching.png"%>
+  </head>
+
+  <body>
+  <nav class="navbar navbar-inverse navbar-fix-top">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
+      <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav">
+          <li class="<%= active_class(:link_path =>root_path)%>"><%= link_to t(:home), root_path%></li>
+          <li class="<%= active_class({:controller=>"bible"})%>"><%= link_to t(:bible), bible_index_path%></li>
+          <% if session[:user_id] %>
+              <li class="<%= active_class({:controller=>"posts"})%>"><%= link_to t(:post), post_index_path%></li>
+          <% end %>
+         </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <% if session[:user_id] %>
+            <li class="<%= active_class({:controller=>"users"})%>"><%= link_to User.find(session[:user_id]).name , user_path(id: session[:user_id]) %>
+              <li><%= link_to t(:logout) , logout_path %>
+          <% else %>
+            <li> <%= link_to t(:login) , "#" , "data-toggle" => "modal", "data-target"=>"#login-modal"%></li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div class="wrapper container-fluid">
+    <%= yield %>
+  </div>
+
+  <div class="modal fade" id="login-modal">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+          <h4 class="modal-title">用Facebook登入</h4>
+        </div>
+        <div class="modal-body">
+          <form id="login-form">
+            <div class="form-group">
+              <button class="btn btn-facebook"><%= link_to render_merge("<i class='fa fa-facebook'></i> ", " | Log in with Facebook"), "/auth/facebook"%></button>
+            </div>
+          </form>
+        </div>
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+  </div><!-- /.modal -->
+  <%= render :partial=>"layouts/footer"%>
+  </body>
+</html>

@@ -1,0 +1,3 @@
+<% bibles.each do |bible| %>
+    <li><%= link_to bible.bid.split("-").last, get_content_path(:bid=> bible.bid), id: "#{bible.bid}", class:"bid", remote: true%></li>
+<% end %>
