@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="HTMainRecommandView">
+            <rect key="frame" x="0.0" y="0.0" width="100" height="120"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="userDefault" translatesAutoresizingMaskIntoConstraints="NO" id="XSg-I2-ZgW">
+                    <rect key="frame" x="25" y="15" width="50" height="50"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="EaU-SS-54f"/>
+                        <constraint firstAttribute="width" constant="50" id="iJw-hF-9Ls"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="25"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="clipsToBounds" value="YES"/>
+                    </userDefinedRuntimeAttributes>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BookName" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DGS-Vj-9iO">
+                    <rect key="frame" x="20" y="73" width="60.5" height="14"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Chapter" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IF3-ZT-ps3">
+                    <rect key="frame" x="29" y="87" width="43.5" height="14"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oUw-QU-hYR">
+                    <rect key="frame" x="0.0" y="0.0" width="100" height="120"/>
+                </button>
+            </subviews>
+            <constraints>
+                <constraint firstItem="IF3-ZT-ps3" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="4tp-Ic-EgI"/>
+                <constraint firstAttribute="bottom" secondItem="oUw-QU-hYR" secondAttribute="bottom" id="758-sK-urW"/>
+                <constraint firstItem="DGS-Vj-9iO" firstAttribute="top" secondItem="XSg-I2-ZgW" secondAttribute="bottom" constant="8" id="BWf-JT-PPh"/>
+                <constraint firstItem="XSg-I2-ZgW" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="15" id="R3p-Ce-Q4l"/>
+                <constraint firstItem="IF3-ZT-ps3" firstAttribute="top" secondItem="DGS-Vj-9iO" secondAttribute="bottom" id="TGm-6f-CM1"/>
+                <constraint firstItem="oUw-QU-hYR" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="U8A-ik-WAA"/>
+                <constraint firstItem="oUw-QU-hYR" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Wm8-Tf-mMX"/>
+                <constraint firstAttribute="trailing" secondItem="oUw-QU-hYR" secondAttribute="trailing" id="aUb-G0-sR5"/>
+                <constraint firstItem="XSg-I2-ZgW" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="adZ-oX-Mwo"/>
+                <constraint firstItem="DGS-Vj-9iO" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="bE0-li-t5M"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="BookNameLab" destination="DGS-Vj-9iO" id="Xya-qA-Sdy"/>
+                <outlet property="GotoSeeBtn" destination="oUw-QU-hYR" id="K91-i6-4SS"/>
+                <outlet property="chapterNumberLab" destination="IF3-ZT-ps3" id="sq5-XJ-gRf"/>
+                <outlet property="userImageView" destination="XSg-I2-ZgW" id="cvK-wK-bem"/>
+            </connections>
+            <point key="canvasLocation" x="-106" y="-210"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="userDefault" width="171" height="171"/>
+    </resources>
+</document>
