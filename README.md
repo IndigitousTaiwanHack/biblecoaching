@@ -2,8 +2,8 @@
 The Podfile is a specification that describes the dependencies of the targets of one or more Xcode projects. The file should simply be named Podfile.
 
 #Install
-Run $ pod install
-Open the MyApp.xcworkspace that was created. This should be the file you use everyday to create your app.
+##Run $ pod install
+##Open the MyApp.xcworkspace that was created. This should be the file you use everyday to create your app.
 
 
 We will use Face api by Mircosoft developer. You can reference this website to register and to get api key.
