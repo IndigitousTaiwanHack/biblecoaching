@@ -1,5 +1,7 @@
 # biblecoaching
 
+We provide bible platform to share your life experience, bible thinking and how to use in bible for everyone.
+Everyone can be your bible coach when point the view from bible. Let yourself grow up in bible.
 
 #Install
 * Run $ pod install
