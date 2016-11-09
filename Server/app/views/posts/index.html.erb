@@ -1,0 +1,70 @@
+<style>
+  .post-content{
+    padding-left: 10px;
+  }
+  .book-title{
+    cursor: pointer;
+  }
+  .panel-bible{
+    margin-bottom: 10px;
+  }
+  .footer-item{
+    padding-left: 10px;
+  }
+  .fa-comments-o{
+    cursor: pointer;
+  }
+  .response-btn{
+    margin-bottom:10px;
+  }
+  .response-area{
+    display: none;
+  }
+  .fa-search-plus{
+    padding-left: 5px;
+  }
+</style>
+<div class="col-sm-12" id="post-list">
+  <div class="container">
+    <% @posts.each do |post| %>
+      <div class="panel panel-primary">
+        <div class="panel-body panel-bible">
+          <div>
+            <h4 data-toggle="collapse" data-target=".section-content-<%=post.id%>" class="book-title"><%= post.bible.book.title + post.bible.bid.split("-")[1] %><i class="fa fa-search-plus" aria-hidden="true"></i></h4>
+            <section class="section-content-<%=post.id%> collapse"><%= get_bible_contents(post.bible).gsub("\n", '<br/>').html_safe%></section>
+          </div>
+          <div>
+            <%= image_tag render_user_photo(post.user_id)%>
+            <span class="post-content post-<%= post.id%>"><%= post.content %></span>
+          </div>
+        </div>
+        <div class="panel-footer">
+          <span >
+            <span><a href="#" data-tooltip="我要按讚"><i class="fa fa-thumbs-o-up fa-lg" target="post-<%= post.id%>" aria-hidden="true"></i></a></span>
+            <span ><a href="#" data-tooltip="按讚數"><%= render_rank_count(post) %></a></span>
+          </span>
+          <span class="footer-item">
+            <span><a href="#" data-tooltip="我要回覆"><i class="fa fa-comments-o fa-lg" target="post-<%= post.id%>" aria-hidden="true"></i></a></span>
+            <span ><a href="#" data-tooltip="回覆數"><%= render_response_count(post)%></a></span>
+          </span>
+        </div>
+        <div class="response-area" target="post-<%= post.id%>">
+          <%= form_tag("/responses", method: 'post', remote: true ) do %>
+              <div class="form-group">
+                <%= text_area_tag :content, nil, class: "form-control",  rows:"2" %>
+              </div>
+              <div dir="rtl" class="response-btn">
+                <%= button_tag "送出", type: 'submit', class:"btn btn-success" %>
+              </div>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+<script>
+  $(".fa-comments-o").click(function(){
+    var target = $(this).attr("target");
+    $("div[target="+target+"]").show();
+  });
+</script>

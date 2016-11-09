@@ -1,0 +1,32 @@
+<style>
+  article{
+    margin-bottom: 20px;
+  }
+  .book-title{
+    background-color: #0cbadf;
+    color: #fff;
+    cursor: pointer;
+    padding-left: 10px;
+  }
+
+</style>
+<div class="col-sm-12" >
+<article>
+  <h3 data-toggle="collapse" data-target="#content" class="book-title"><%= @bible.book.title %><%= @bible.bid.split("-")[1]%></h3>
+  <section id="content" class="collapse"><%= get_bible_contents(@bible).gsub("\n", '<br/>').html_safe%></section>
+</article>
+<%= form_for @post, :url => create_post_path, :html => { :class => "new-post"} do |f| %>
+    <%=f.hidden_field( :bible_bid, :value => params[:bid])%>
+    <div class="form-group">
+      <label>評論者:</label>
+      <label><%= @current_user.name %></label>
+    </div>
+    <div class="form-group">
+      <label>內容:</label>
+      <%= f.text_area :content ,class: "form-control",  rows:"10"%>
+    </div>
+    <div class="form-group" dir="rtl">
+      <button class="btn btn-success btn-lg">送出</button>
+    </div>
+<% end %>
+</div>
